@@ -1,8 +1,9 @@
 name: npm publish
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - "experimental-package"
 
 jobs:
   build-binaries:
