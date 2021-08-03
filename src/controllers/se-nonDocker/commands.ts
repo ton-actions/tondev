@@ -62,7 +62,7 @@ export const seRestartCommand: Command = {
     args: [],
     async run(): Promise<void> {
         await tonosTondev.seStopCommand(tonosSe);
-        await tonosTondev.seStartCommand(tonosSe);        
+        await tonosTondev.seStartCommand(tonosSe);
     },
 };
 
@@ -93,14 +93,12 @@ export const seSetCommand: Command = {
             title: "SE version (version number or `latest`)",
             type: "string",
             defaultValue: "",
-
         },
         {
             name: "port",
             title: "Port on localhost used to expose GraphQL API",
             type: "string",
             defaultValue: "",
-
         },
         {
             name: "db-port",
@@ -115,15 +113,9 @@ export const seSetCommand: Command = {
         dbPort: string,
         instance: string
     }): Promise<void> {
-        if (!args.version && !args.port && !args.dbPort){
+        if (!args.version && !args.port && !args.dbPort) {
             return;
         }
-        await tonosTondev.seStopCommand(tonosSe);
-        if (args.version) {
-            await tonosTondev.seSetVersionCommand(args.version);
-        }
-        if (args.port || args.dbPort){
-            await tonosTondev.seSetPortsCommand(tonosSe, args.port, args.dbPort);
-        }
+        await tonosTondev.seSetCommand(tonosSe, args.version, args.port, args.dbPort);
     },
 };
