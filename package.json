@@ -37,7 +37,7 @@
 	},
 	"dependencies": {
 		"@ton-actions/tonos-se-package": "^0.28.6-fix.6",
-		"@ton-actions/tonos-se-tondev": "^1.0.1",
+		"@ton-actions/tonos-se-tondev": "^1.0.2",
 		"@tonclient/appkit": "^0",
 		"@tonclient/core": "^1",
 		"@tonclient/lib-node": "^1",
