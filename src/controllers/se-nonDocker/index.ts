@@ -4,9 +4,10 @@ import {
     seVersionCommand,
     seUpdateCommand,
     seSetCommand,
-    seResetCommand,
     seStartCommand,
-    seStopCommand
+    seStopCommand,
+    seResetCommand,    
+    seRestartCommand
 } from "./commands";
 
 export const SENonDocker: ToolController = {
@@ -20,5 +21,6 @@ export const SENonDocker: ToolController = {
         seStartCommand,
         seStopCommand,
         seResetCommand,
+        seRestartCommand
     ],
 };

@@ -55,6 +55,17 @@ export const seStopCommand: Command = {
     },
 };
 
+
+export const seRestartCommand: Command = {
+    name: "restart",
+    title: "Restart SE Instance",
+    args: [],
+    async run(): Promise<void> {
+        await tonosTondev.seStopCommand(tonosSe);
+        await tonosTondev.seStartCommand(tonosSe);        
+    },
+};
+
 export const seResetCommand: Command = {
     name: "reset",
     title: "Reset SE Instance",
