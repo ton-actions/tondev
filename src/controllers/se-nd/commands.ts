@@ -2,7 +2,6 @@
 import { Command, Terminal } from "../../core";
 import { formatTable } from "../../core/utils";
 import * as tonosTondev from "@ton-actions/tonos-se-tondev";
-let tonosSe = require("@ton-actions/tonos-se-package");
 
 export const seInfoCommand: Command = {
     name: "info",
@@ -16,7 +15,7 @@ export const seInfoCommand: Command = {
             "ArangoDB Port",
         ]]
 
-        const info = await tonosTondev.seInfoCommand(tonosSe);
+        const info = await tonosTondev.seInfoCommand();
         table.push([
             info.state,
             info.version,
@@ -31,7 +30,7 @@ export const seVersionCommand: Command = {
     name: "version",
     title: "Show SE Versions",
     async run(terminal: Terminal, _args: {}): Promise<void> {
-        const version = await tonosTondev.seVersionCommand(tonosSe);
+        const version = await tonosTondev.seVersionCommand();
         terminal.log(`Current version: ${version.current}`);
         terminal.log(`Available Versions: ${(version.availableVersions).join(", ")}`);
     },
@@ -42,7 +41,7 @@ export const seStartCommand: Command = {
     title: "Start SE Instance",
     args: [],
     async run(): Promise<void> {
-        await tonosTondev.seStartCommand(tonosSe);
+        await tonosTondev.seStartCommand();
     },
 };
 
@@ -51,7 +50,7 @@ export const seStopCommand: Command = {
     title: "Stop SE Instance",
     args: [],
     async run(): Promise<void> {
-        await tonosTondev.seStopCommand(tonosSe);
+        await tonosTondev.seStopCommand();
     },
 };
 
@@ -61,8 +60,8 @@ export const seRestartCommand: Command = {
     title: "Restart SE Instance",
     args: [],
     async run(): Promise<void> {
-        await tonosTondev.seStopCommand(tonosSe);
-        await tonosTondev.seStartCommand(tonosSe);
+        await tonosTondev.seStopCommand();
+        await tonosTondev.seStartCommand();
     },
 };
 
@@ -71,7 +70,7 @@ export const seResetCommand: Command = {
     title: "Reset SE Instance",
     args: [],
     async run(): Promise<void> {
-        await tonosTondev.seResetCommand(tonosSe);
+        await tonosTondev.seResetCommand();
     },
 };
 
@@ -80,7 +79,7 @@ export const seUpdateCommand: Command = {
     title: "Update SE Instance Version",
     args: [],
     async run(): Promise<void> {
-        await tonosTondev.seUpdateCommand(tonosSe);
+        await tonosTondev.seUpdateCommand();
     },
 };
 
@@ -116,6 +115,6 @@ export const seSetCommand: Command = {
         if (!args.version && !args.port && !args.dbPort) {
             return;
         }
-        await tonosTondev.seSetCommand(tonosSe, args.version, args.port, args.dbPort);
+        await tonosTondev.seSetCommand(args.version, args.port, args.dbPort);
     },
 };

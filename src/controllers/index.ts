@@ -3,7 +3,7 @@ import {Solidity} from "./solidity";
 // import {TestSuite} from "./ts";
 import {JsApps} from "./js";
 import {SE} from "./se";
-import {SENonDocker} from "./se-nonDocker";
+import {SENonDocker} from "./se-nd";
 import {TONOS} from "./tonos-cli";
 import {TestSuite4} from "./ts4";
 import {
